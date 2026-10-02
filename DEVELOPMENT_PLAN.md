@@ -139,15 +139,15 @@ These assumptions allow implementation to begin without settling every product q
 
 ## 7. Information architecture
 
-| Route | Purpose | MVP state |
-|---|---|---|
-| `/` | Home map, current location, next mission | Complete |
-| `/mission/:missionId` | Reusable mission runner | Complete for two missions |
-| `/words` | Personal vocabulary collection | Complete |
-| `/badges` | Earned reward and future placeholders | One real reward |
-| `/journey` | Completed missions and current progress | Lightweight summary |
-| `/teacher/:missionId` | Projection-friendly mission view | Complete for MVP missions |
-| `/settings` | Language, audio, reduced motion, reset | Can be a modal or page |
+| Route                 | Purpose                                  | MVP state                 |
+| --------------------- | ---------------------------------------- | ------------------------- |
+| `/`                   | Home map, current location, next mission | Complete                  |
+| `/mission/:missionId` | Reusable mission runner                  | Complete for two missions |
+| `/words`              | Personal vocabulary collection           | Complete                  |
+| `/badges`             | Earned reward and future placeholders    | One real reward           |
+| `/journey`            | Completed missions and current progress  | Lightweight summary       |
+| `/teacher/:missionId` | Projection-friendly mission view         | Complete for MVP missions |
+| `/settings`           | Language, audio, reduced motion, reset   | Can be a modal or page    |
 
 The four learning destinations and the school's approved inquiry-cycle stages live on the Home map as readable interface labels. A destination opens its available mission list only when more than one mission exists; for the MVP, the current destination can go directly to its mission.
 
@@ -171,17 +171,17 @@ flowchart TD
 
 ### Architecture decisions
 
-| Decision | Choice | Reason |
-|---|---|---|
-| Rendering | Client-side React app | The MVP is static, interactive, and does not need server rendering. |
-| State | Feature-local state plus a small app context | Avoids a global state dependency before complexity justifies one. |
-| Curriculum content | Versioned TypeScript or JSON data validated by Zod | Separates educator-owned content from layout and catches missing fields early. |
-| Translation | Locale files with stable content IDs and explicit review status | Supports human review and prevents unapproved copy from shipping. |
-| Progress | Repository interface backed by versioned `localStorage` | Keeps storage replaceable and supports later migration to accounts or a backend. |
-| Audio | Pre-recorded static assets, user-triggered playback, transcript fallback | Works with iPad browser restrictions and avoids recording children. |
-| Offline | Precache app shell, approved content, illustrations, and mission audio | Supports reliable classroom use after initial load. |
-| Styling | CSS Modules plus CSS custom-property tokens | Keeps visuals expressive without tying content to a component library. |
-| Interactions | Tap/click and keyboard-first controls | Avoids drag-only tasks and supports touch, keyboard, and assistive technology. |
+| Decision           | Choice                                                                   | Reason                                                                           |
+| ------------------ | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| Rendering          | Client-side React app                                                    | The MVP is static, interactive, and does not need server rendering.              |
+| State              | Feature-local state plus a small app context                             | Avoids a global state dependency before complexity justifies one.                |
+| Curriculum content | Versioned TypeScript or JSON data validated by Zod                       | Separates educator-owned content from layout and catches missing fields early.   |
+| Translation        | Locale files with stable content IDs and explicit review status          | Supports human review and prevents unapproved copy from shipping.                |
+| Progress           | Repository interface backed by versioned `localStorage`                  | Keeps storage replaceable and supports later migration to accounts or a backend. |
+| Audio              | Pre-recorded static assets, user-triggered playback, transcript fallback | Works with iPad browser restrictions and avoids recording children.              |
+| Offline            | Precache app shell, approved content, illustrations, and mission audio   | Supports reliable classroom use after initial load.                              |
+| Styling            | CSS Modules plus CSS custom-property tokens                              | Keeps visuals expressive without tying content to a component library.           |
+| Interactions       | Tap/click and keyboard-first controls                                    | Avoids drag-only tasks and supports touch, keyboard, and assistive technology.   |
 
 ### Suggested repository structure
 
@@ -285,15 +285,15 @@ Required rules:
 
 The schedule is indicative. With one engineer and timely content/design review, pilot readiness is approximately six to eight weeks. The pilot and post-pilot iteration are separate from the MVP build.
 
-| Phase | Indicative duration | Main deliverables | Exit criteria |
-|---|---:|---|---|
-| 0. Decisions and foundation | 2 to 3 days | Check the development environment and school device floor; resolve blocking product decisions; approve or defer PWA/offline scope; choose hosting; retain approved references; plan formative testing; scaffold app; pin toolchain; add lint/typecheck/test/build scripts; create tokens and content schemas | A clean checkout installs and passes CI; the provisional stack is validated; required terminology, sample language, device model, brand constraints, reference ownership, and early-test participants are recorded |
-| 1. Interactive home vertical slice | 1 week | Responsive shell, hybrid map, four regions, visible inquiry-cycle stages, header, bottom navigation, next-mission card, initial original art direction, and core states | A small formative test confirms representative students and teachers can identify purpose, location, and next action without explanation |
-| 2. Mission engine and first mission | 1 to 1.5 weeks | Mission schema, renderer, Be Open-Minded content, interaction, reflection, reward, resume, error states | The mission completes end to end on a real iPad and resumes correctly after refresh |
-| 3. Language, audio, and vocabulary | 1 week | English, Simple English, home language, bilingual option, narration, captions, transcripts, My Words, and an EAL comprehension check | Language can change at any mission step; all narration has captions and transcripts; every MVP word has audio; expansion tests show no clipping; target learners can find and use support independently |
-| 4. Reuse, progress, and teacher mode | 1 week | Second mission, journey, badge view, robust local progress, reset, teacher projection mode | Both missions use the same renderer and data schemas; no new screen code is needed for the second mission |
-| 5. Pilot hardening and optional PWA | 1 to 1.5 weeks | Accessibility remediation, safeguarding and privacy authorization, device matrix, content sign-off, pilot build, plus offline cache and installability if approved | No critical accessibility, privacy, or safeguarding issues; all approved MVP content works online and, when in scope, reports offline-ready and works offline on the supported iPad |
-| 6. School pilot and iteration | 1 to 2 weeks | Authorized one- or two-year-level pilot, observation notes, interviews, prioritized fixes | Evidence exists for comprehension, independent support use, teacher usability, navigation clarity, equity, and willingness to continue |
+| Phase                                | Indicative duration | Main deliverables                                                                                                                                                                                                                                                                                            | Exit criteria                                                                                                                                                                                                      |
+| ------------------------------------ | ------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0. Decisions and foundation          |         2 to 3 days | Check the development environment and school device floor; resolve blocking product decisions; approve or defer PWA/offline scope; choose hosting; retain approved references; plan formative testing; scaffold app; pin toolchain; add lint/typecheck/test/build scripts; create tokens and content schemas | A clean checkout installs and passes CI; the provisional stack is validated; required terminology, sample language, device model, brand constraints, reference ownership, and early-test participants are recorded |
+| 1. Interactive home vertical slice   |              1 week | Responsive shell, hybrid map, four regions, visible inquiry-cycle stages, header, bottom navigation, next-mission card, initial original art direction, and core states                                                                                                                                      | A small formative test confirms representative students and teachers can identify purpose, location, and next action without explanation                                                                           |
+| 2. Mission engine and first mission  |      1 to 1.5 weeks | Mission schema, renderer, Be Open-Minded content, interaction, reflection, reward, resume, error states                                                                                                                                                                                                      | The mission completes end to end on a real iPad and resumes correctly after refresh                                                                                                                                |
+| 3. Language, audio, and vocabulary   |              1 week | English, Simple English, home language, bilingual option, narration, captions, transcripts, My Words, and an EAL comprehension check                                                                                                                                                                         | Language can change at any mission step; all narration has captions and transcripts; every MVP word has audio; expansion tests show no clipping; target learners can find and use support independently            |
+| 4. Reuse, progress, and teacher mode |              1 week | Second mission, journey, badge view, robust local progress, reset, teacher projection mode                                                                                                                                                                                                                   | Both missions use the same renderer and data schemas; no new screen code is needed for the second mission                                                                                                          |
+| 5. Pilot hardening and optional PWA  |      1 to 1.5 weeks | Accessibility remediation, safeguarding and privacy authorization, device matrix, content sign-off, pilot build, plus offline cache and installability if approved                                                                                                                                           | No critical accessibility, privacy, or safeguarding issues; all approved MVP content works online and, when in scope, reports offline-ready and works offline on the supported iPad                                |
+| 6. School pilot and iteration        |        1 to 2 weeks | Authorized one- or two-year-level pilot, observation notes, interviews, prioritized fixes                                                                                                                                                                                                                    | Evidence exists for comprehension, independent support use, teacher usability, navigation clarity, equity, and willingness to continue                                                                             |
 
 Illustration and audio production run in parallel from Phase 0 through Phase 3. The team must assign owners, confirm rights, define text-safe art zones, produce the original mascot and inclusive characters, integrate optimized assets, and record approval status before the pilot build.
 
@@ -456,56 +456,56 @@ Artwork and audio follow the same approval model. Asset records should include o
 
 These thresholds are planning proposals and should be confirmed before the pilot.
 
-| Measure | Proposed pilot target |
-|---|---|
-| Orientation | At least 80 percent of students can state the app's purpose, identify where they are in the learning world, and choose the next action within 10 seconds without teacher guidance |
-| Mission completion | At least 85 percent complete the first mission without adult intervention beyond normal classroom support |
-| Concept understanding | At least 75 percent explain or identify the target term using an example rather than repeating only the definition |
-| Support independence | At least 75 percent of multilingual learners independently use audio, Simple English, visuals, or home-language support when needed |
-| Teacher setup | A teacher can open and project a chosen mission in under one minute |
-| Classroom connection | At least 80 percent of participating teachers can explain how the mission connects to a current unit or lesson without extensive setup |
-| Navigation recovery | At least 90 percent can return to Home or resume after leaving a mission |
-| Willingness to continue | At least 75 percent voluntarily choose or ask to try another mission after completing the first, without using streaks or pressure |
-| Translation resilience | No essential text clips or becomes unreachable in approved locales or the expansion test |
-| Technical reliability | No data loss, blocked progression, or uncaught error during observed pilot sessions |
+| Measure                 | Proposed pilot target                                                                                                                                                             |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Orientation             | At least 80 percent of students can state the app's purpose, identify where they are in the learning world, and choose the next action within 10 seconds without teacher guidance |
+| Mission completion      | At least 85 percent complete the first mission without adult intervention beyond normal classroom support                                                                         |
+| Concept understanding   | At least 75 percent explain or identify the target term using an example rather than repeating only the definition                                                                |
+| Support independence    | At least 75 percent of multilingual learners independently use audio, Simple English, visuals, or home-language support when needed                                               |
+| Teacher setup           | A teacher can open and project a chosen mission in under one minute                                                                                                               |
+| Classroom connection    | At least 80 percent of participating teachers can explain how the mission connects to a current unit or lesson without extensive setup                                            |
+| Navigation recovery     | At least 90 percent can return to Home or resume after leaving a mission                                                                                                          |
+| Willingness to continue | At least 75 percent voluntarily choose or ask to try another mission after completing the first, without using streaks or pressure                                                |
+| Translation resilience  | No essential text clips or becomes unreachable in approved locales or the expansion test                                                                                          |
+| Technical reliability   | No data loss, blocked progression, or uncaught error during observed pilot sessions                                                                                               |
 
 Report results separately for multilingual/new-to-IB learners and students using accessibility supports so overall averages do not hide access barriers. Avoid engagement metrics that reward compulsive use. Return visits are useful only when interpreted alongside learning value and teacher feedback.
 
 ## 16. Risks and mitigations
 
-| Risk | Impact | Mitigation |
-|---|---|---|
-| IB terminology or branding implies endorsement | Legal, reputational, and release risk | Keep the title provisional, avoid the official logo, document original visual identity, and complete school/trademark review before public release |
-| Curriculum content is accurate but not child-friendly | Low comprehension and poor transfer | Require educator review, examples and non-examples, Simple English, and short student testing before approval |
-| Translation changes meaning or does not fit | Misunderstanding and broken layouts | Use stable keys, human reviewers, explicit approval status, bilingual review, and length-expansion tests |
-| Rich illustration competes with labels | Children miss destinations or next steps | Reserve quiet text zones, keep text live, test in grayscale, and make the current action dominant |
-| iPad audio and PWA behavior differs from desktop | Failed playback or offline use | Require user-triggered audio, provide captions and transcripts, test on real supported iPads, and make offline a release gate only when Phase 0 approves that scope |
-| Local progress is unsuitable for shared devices | Students overwrite or see another student's progress | Treat the device model as a hard pre-pilot decision; use single-profile storage only on dedicated devices and design ephemeral sessions or protected profiles for shared use |
-| Artwork or audio production delays the build | Vertical slice cannot be tested | Use clearly licensed temporary assets behind stable interfaces, then replace without changing content IDs or layout contracts |
-| Mission engine becomes too generic too early | Schedule slips and screens become hard to maintain | Implement only the step types required by the two MVP missions and add new types when a real mission needs them |
-| Automated checks give false confidence on accessibility | Barriers reach students | Combine axe with keyboard, VoiceOver, zoom, reduced-motion, projection, and student observation |
-| Scope expands to accounts or CMS before learning is proven | MVP misses the pilot window | Keep backend, authentication, analytics, and authoring UI explicitly deferred until pilot evidence justifies them |
+| Risk                                                       | Impact                                               | Mitigation                                                                                                                                                                   |
+| ---------------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IB terminology or branding implies endorsement             | Legal, reputational, and release risk                | Keep the title provisional, avoid the official logo, document original visual identity, and complete school/trademark review before public release                           |
+| Curriculum content is accurate but not child-friendly      | Low comprehension and poor transfer                  | Require educator review, examples and non-examples, Simple English, and short student testing before approval                                                                |
+| Translation changes meaning or does not fit                | Misunderstanding and broken layouts                  | Use stable keys, human reviewers, explicit approval status, bilingual review, and length-expansion tests                                                                     |
+| Rich illustration competes with labels                     | Children miss destinations or next steps             | Reserve quiet text zones, keep text live, test in grayscale, and make the current action dominant                                                                            |
+| iPad audio and PWA behavior differs from desktop           | Failed playback or offline use                       | Require user-triggered audio, provide captions and transcripts, test on real supported iPads, and make offline a release gate only when Phase 0 approves that scope          |
+| Local progress is unsuitable for shared devices            | Students overwrite or see another student's progress | Treat the device model as a hard pre-pilot decision; use single-profile storage only on dedicated devices and design ephemeral sessions or protected profiles for shared use |
+| Artwork or audio production delays the build               | Vertical slice cannot be tested                      | Use clearly licensed temporary assets behind stable interfaces, then replace without changing content IDs or layout contracts                                                |
+| Mission engine becomes too generic too early               | Schedule slips and screens become hard to maintain   | Implement only the step types required by the two MVP missions and add new types when a real mission needs them                                                              |
+| Automated checks give false confidence on accessibility    | Barriers reach students                              | Combine axe with keyboard, VoiceOver, zoom, reduced-motion, projection, and student observation                                                                              |
+| Scope expands to accounts or CMS before learning is proven | MVP misses the pilot window                          | Keep backend, authentication, analytics, and authoring UI explicitly deferred until pilot evidence justifies them                                                            |
 
 ## 17. Decisions and owners
 
-| Decision | Needed by | Recommended owner | Temporary planning default |
-|---|---|---|---|
-| Exact year levels and PYP-only scope | Phase 0 | Product and curriculum lead | Ages 7 to 11, PYP-only |
-| Provisional web stack and local environment | Phase 0 | Technical lead | Validate React, TypeScript, and Vite against the available environment and device floor before scaffolding |
-| Official inquiry-cycle stages and wording | Before Phase 1 content lock | School curriculum lead | Use placeholders that are easy to replace |
-| First home language | Phase 0 | School language lead | No language assumed in code; use a configurable locale slot |
-| Human translation reviewer | Before Phase 3 | School language lead | Pilot cannot ship without an assigned reviewer |
-| Individual, shared, or class devices | Phase 0 | School technology lead | Single local profile only on a dedicated prototype device; shared use is blocked pending a safe session model |
-| Header identity | Phase 0 | Product and safeguarding leads | Anonymous Explorer identity; optional local nickname only if approved |
-| MVP response modalities | Phase 0 | Product, curriculum, and safeguarding leads | Selection, matching, ordering, and non-persisted text; defer recording and saved drawing |
-| Working title and use of IB terminology | Before public preview | School leadership or legal/brand owner | Working title only; no official logo or endorsement claim |
-| Second mission | Before Phase 2 ends | Curriculum lead | Ask a Good Question in Inquiry River |
-| Narration voice and usage rights | Before Phase 3 | Product/content lead | Licensed or team-recorded sample audio, never child recordings |
-| Hosting target and supported Safari version | Phase 0 | Technical lead | Static hosting; GitHub Pages is acceptable if policy permits |
-| Installable and offline PWA scope | Phase 0 | Product and technical leads | Recommended if schedule and school devices support it; otherwise defer the service worker |
-| Retained brief and visual-reference location | Phase 0 | Product/design lead | Record a controlled source-of-truth location and usage rights before visual implementation |
-| Pilot cohort and evidence protocol | Before Phase 5 | Product research and school lead | One or two year levels with teacher observation |
-| Future account strategy | After pilot | Product, privacy, and school technology leads | No accounts in MVP |
+| Decision                                     | Needed by                   | Recommended owner                             | Temporary planning default                                                                                    |
+| -------------------------------------------- | --------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Exact year levels and PYP-only scope         | Phase 0                     | Product and curriculum lead                   | Ages 7 to 11, PYP-only                                                                                        |
+| Provisional web stack and local environment  | Phase 0                     | Technical lead                                | Validate React, TypeScript, and Vite against the available environment and device floor before scaffolding    |
+| Official inquiry-cycle stages and wording    | Before Phase 1 content lock | School curriculum lead                        | Use placeholders that are easy to replace                                                                     |
+| First home language                          | Phase 0                     | School language lead                          | No language assumed in code; use a configurable locale slot                                                   |
+| Human translation reviewer                   | Before Phase 3              | School language lead                          | Pilot cannot ship without an assigned reviewer                                                                |
+| Individual, shared, or class devices         | Phase 0                     | School technology lead                        | Single local profile only on a dedicated prototype device; shared use is blocked pending a safe session model |
+| Header identity                              | Phase 0                     | Product and safeguarding leads                | Anonymous Explorer identity; optional local nickname only if approved                                         |
+| MVP response modalities                      | Phase 0                     | Product, curriculum, and safeguarding leads   | Selection, matching, ordering, and non-persisted text; defer recording and saved drawing                      |
+| Working title and use of IB terminology      | Before public preview       | School leadership or legal/brand owner        | Working title only; no official logo or endorsement claim                                                     |
+| Second mission                               | Before Phase 2 ends         | Curriculum lead                               | Ask a Good Question in Inquiry River                                                                          |
+| Narration voice and usage rights             | Before Phase 3              | Product/content lead                          | Licensed or team-recorded sample audio, never child recordings                                                |
+| Hosting target and supported Safari version  | Phase 0                     | Technical lead                                | Static hosting; GitHub Pages is acceptable if policy permits                                                  |
+| Installable and offline PWA scope            | Phase 0                     | Product and technical leads                   | Recommended if schedule and school devices support it; otherwise defer the service worker                     |
+| Retained brief and visual-reference location | Phase 0                     | Product/design lead                           | Record a controlled source-of-truth location and usage rights before visual implementation                    |
+| Pilot cohort and evidence protocol           | Before Phase 5              | Product research and school lead              | One or two year levels with teacher observation                                                               |
+| Future account strategy                      | After pilot                 | Product, privacy, and school technology leads | No accounts in MVP                                                                                            |
 
 ## 18. Suggested pull request sequence
 

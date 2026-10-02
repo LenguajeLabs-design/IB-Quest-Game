@@ -1,0 +1,86 @@
+@import './tokens.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 20rem;
+  min-height: 100%;
+  background: var(--color-canvas);
+}
+
+body {
+  min-width: 20rem;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 0.2rem solid var(--color-focus);
+  outline-offset: 0.2rem;
+}
+
+::selection {
+  color: var(--color-ink);
+  background: #f3d990;
+}
+
+.error-page {
+  display: grid;
+  min-height: 100vh;
+  padding: 2rem;
+  place-content: center;
+  text-align: center;
+  background: var(--color-canvas);
+}
+
+.error-page__eyebrow {
+  margin-bottom: 0;
+  color: var(--color-coral);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.error-page h1 {
+  max-width: 18ch;
+  margin: 0.75rem auto;
+  font-family: var(--font-display);
+}
+
+.error-page button {
+  justify-self: center;
+  min-height: 3rem;
+  padding: 0.6rem 1.1rem;
+  color: white;
+  font-weight: 750;
+  background: var(--color-river);
+  border: 0;
+  border-radius: var(--radius-sm);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,506 @@
+.shell {
+  min-height: 100vh;
+  background: #071c4b;
+}
+.skipLink {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 100;
+  padding: 0.8rem 1.2rem;
+  color: #071c4b;
+  font-weight: 900;
+  background: #ffdc3d;
+  border-radius: 0 0 1rem 1rem;
+  transform: translate(-50%, -130%);
+  transition: transform 160ms ease;
+}
+.skipLink:focus {
+  transform: translate(-50%, 0);
+}
+.homePage {
+  min-height: 100vh;
+  padding: 0.75rem 0.75rem 6.4rem;
+  background:
+    radial-gradient(circle at 50% 0%, rgb(46 164 255 / 38%), transparent 42rem),
+    #071c4b;
+}
+.mapViewport {
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-color: #56d8ff #0c2b67;
+  scrollbar-width: thin;
+}
+.mapFrame {
+  position: relative;
+  width: min(100%, 96rem);
+  min-width: 61rem;
+  height: calc(100vh - 7.15rem);
+  min-height: 34rem;
+  aspect-ratio: 1672 / 941;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #4ebbea;
+  border: 0.24rem solid rgb(124 211 255 / 38%);
+  border-radius: 2rem;
+  box-shadow: 0 1.8rem 5rem rgb(0 8 38 / 45%);
+  isolation: isolate;
+}
+
+@media (min-width: 62.01rem) {
+  .mapFrame {
+    aspect-ratio: auto;
+  }
+}
+.mapFrame::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgb(4 28 70 / 20%),
+    transparent 16% 74%,
+    rgb(4 20 59 / 20%)
+  );
+  content: '';
+}
+.mapArt,
+.mapArt img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.mapArt img {
+  object-fit: cover;
+}
+.gameHeader {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  left: 1.1rem;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: minmax(13rem, 1fr) auto minmax(13rem, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+.explorerCard,
+.headerControls,
+.gameLogo,
+.nextMission,
+.destination,
+.helpBubble {
+  box-shadow: 0 0.8rem 1.7rem rgb(5 33 77 / 28%);
+}
+.explorerCard {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  min-width: 13rem;
+  min-height: 4.6rem;
+  padding: 0.45rem 0.9rem 0.45rem 0.45rem;
+  gap: 0.7rem;
+  color: #102c5f;
+  background: rgb(255 255 255 / 94%);
+  border: 0.16rem solid white;
+  border-radius: 1.35rem;
+  backdrop-filter: blur(0.7rem);
+}
+.avatar {
+  display: grid;
+  width: 3.5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  font-size: 1.65rem;
+  background: linear-gradient(145deg, #34b7ec, #1b65b0);
+  border: 0.18rem solid #c5f4ff;
+  border-radius: 50%;
+}
+.explorerCard p,
+.explorerCard strong {
+  display: block;
+  margin: 0;
+  line-height: 1.1;
+}
+.explorerCard p {
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.explorerCard strong {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+}
+.levelRow {
+  display: flex;
+  align-items: center;
+  margin-top: 0.35rem;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+}
+.levelTrack {
+  width: 5.4rem;
+  height: 0.45rem;
+  overflow: hidden;
+  background: #d7e2f1;
+  border-radius: 999px;
+}
+.levelTrack span {
+  display: block;
+  width: 28%;
+  height: 100%;
+  background: linear-gradient(90deg, #ffd525, #ffad27);
+}
+.gameLogo {
+  position: relative;
+  justify-self: center;
+  min-width: 15rem;
+  padding: 0.65rem 1.4rem 0.75rem;
+  color: white;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  text-shadow:
+    0 0.18rem 0 #071f58,
+    0 0.3rem 0.7rem rgb(0 0 0 / 28%);
+  background: linear-gradient(180deg, #143f99, #082667);
+  border: 0.18rem solid #4bb7ef;
+  border-radius: 1.2rem 1.2rem 1.8rem 1.8rem;
+  transform: rotate(-1deg);
+}
+.gameLogo > span {
+  position: absolute;
+  top: -0.65rem;
+  left: 50%;
+  color: #ffdf38;
+  font-size: 1.25rem;
+  transform: translateX(-50%);
+}
+.gameLogo em {
+  color: #ffdc36;
+  font-style: normal;
+}
+.headerControls {
+  display: flex;
+  justify-self: end;
+  padding: 0.35rem;
+  gap: 0.45rem;
+  background: rgb(9 45 102 / 86%);
+  border: 0.12rem solid rgb(137 215 255 / 44%);
+  border-radius: 999px;
+  backdrop-filter: blur(0.7rem);
+}
+.languageButton,
+.roundButton {
+  min-height: 3.2rem;
+  color: #102c5f;
+  font-weight: 950;
+  background: white;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: inset 0 -0.18rem 0 #c9d8ea;
+}
+.languageButton {
+  display: flex;
+  align-items: center;
+  min-width: 7rem;
+  padding: 0.55rem 0.9rem;
+  gap: 0.45rem;
+}
+.roundButton {
+  width: 3.2rem;
+  padding: 0;
+  font-size: 1.25rem;
+}
+.destination {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  min-height: 3.2rem;
+  padding: 0.55rem 0.9rem;
+  gap: 0.45rem;
+  color: #102c5f;
+  font-family: var(--font-display);
+  font-size: clamp(0.78rem, 1.45vw, 1.05rem);
+  font-weight: 950;
+  text-decoration: none;
+  white-space: nowrap;
+  background: rgb(255 255 255 / 94%);
+  border: 0.18rem solid white;
+  border-radius: 999px;
+  backdrop-filter: blur(0.5rem);
+}
+.destination small {
+  padding: 0.2rem 0.45rem;
+  color: #4a6981;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  background: #e6f3f8;
+  border-radius: 999px;
+}
+a.destination {
+  border-color: #ffcf31;
+  box-shadow:
+    0 0 0 0.22rem rgb(255 216 54 / 32%),
+    0 0.8rem 1.7rem rgb(5 33 77 / 28%);
+}
+a.destination:hover {
+  transform: translateY(-0.15rem) scale(1.02);
+}
+button.destination:disabled {
+  cursor: not-allowed;
+  opacity: 0.87;
+}
+.peaksDestination {
+  top: 29%;
+  left: 15%;
+}
+.labDestination {
+  top: 34%;
+  left: 42%;
+}
+.riverDestination {
+  top: 58%;
+  left: 51%;
+}
+.compassDestination {
+  top: 28%;
+  right: 8%;
+}
+.nextMission {
+  position: absolute;
+  right: 2.3%;
+  bottom: 3.2%;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  width: min(31%, 25rem);
+  min-width: 19rem;
+  padding: 0.85rem;
+  gap: 0.85rem;
+  color: #102c5f;
+  background: rgb(255 255 255 / 95%);
+  border: 0.2rem solid white;
+  border-radius: 1.6rem;
+  backdrop-filter: blur(0.7rem);
+}
+.missionStamp {
+  display: grid;
+  width: 5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  align-self: center;
+  color: #fff0a0;
+  font-size: 2.8rem;
+  background: radial-gradient(
+    circle,
+    #1baac3 0 38%,
+    #134a91 39% 58%,
+    #ffcc31 59%
+  );
+  border: 0.22rem solid white;
+  border-radius: 1.2rem;
+}
+.missionCopy p,
+.missionCopy h2,
+.missionCopy > span {
+  margin: 0;
+}
+.missionCopy p {
+  color: #4c6b82;
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.missionCopy h2 {
+  margin-top: 0.1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.1vw, 1.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+.missionCopy > span {
+  display: block;
+  margin-top: 0.3rem;
+  color: #496b7f;
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+.missionCopy a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 2.8rem;
+  padding: 0.5rem 0.8rem;
+  margin-top: 0.65rem;
+  color: #102c5f;
+  font-size: 1rem;
+  font-weight: 950;
+  text-decoration: none;
+  background: linear-gradient(180deg, #ffe466, #ffbf24);
+  border: 0.12rem solid #eba909;
+  border-radius: 0.9rem;
+  box-shadow: 0 0.24rem 0 #d18c08;
+}
+.helpBubble {
+  position: absolute;
+  top: 6.2rem;
+  right: 1.6rem;
+  z-index: 7;
+  width: 15rem;
+  padding: 0.9rem 1rem;
+  color: #102c5f;
+  background: white;
+  border: 0.16rem solid #79d3f0;
+  border-radius: 1rem;
+}
+.helpBubble p {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+.scrollHint {
+  display: none;
+  margin: 0.5rem 0 0;
+  color: #d7f3ff;
+  font-size: 0.78rem;
+  text-align: center;
+}
+.bottomNav {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 10rem));
+  justify-content: center;
+  min-height: 5.4rem;
+  padding: 0.4rem max(1rem, env(safe-area-inset-right))
+    calc(0.4rem + env(safe-area-inset-bottom))
+    max(1rem, env(safe-area-inset-left));
+  gap: 0.4rem;
+  background: linear-gradient(180deg, #103d86, #071f56);
+  border-top: 0.14rem solid rgb(83 171 231 / 50%);
+  box-shadow: 0 -0.7rem 2rem rgb(3 20 55 / 34%);
+}
+.navLink {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0.35rem;
+  color: #eaf8ff;
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-decoration: none;
+  border-radius: 1rem;
+}
+.navLinkActive {
+  color: white;
+  background: rgb(70 166 225 / 25%);
+}
+.navLinkActive::after {
+  position: absolute;
+  right: 25%;
+  bottom: 0.08rem;
+  left: 25%;
+  height: 0.22rem;
+  background: #53e0ff;
+  border-radius: 999px;
+  box-shadow: 0 0 0.6rem #53e0ff;
+  content: '';
+}
+.navIcon {
+  font-size: 1.65rem;
+  line-height: 1;
+  filter: drop-shadow(0 0.14rem 0 rgb(2 25 67 / 55%));
+}
+.placeholderPage {
+  display: grid;
+  min-height: 100vh;
+  padding: 2rem 1rem 7rem;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgb(53 202 255 / 32%), transparent 32rem),
+    linear-gradient(155deg, #09295e, #0f6c93);
+}
+.placeholderCard {
+  width: min(100%, 36rem);
+  padding: 3rem 2rem;
+  color: #102c5f;
+  text-align: center;
+  background: #fffdf4;
+  border: 0.25rem solid white;
+  border-radius: 2rem;
+  box-shadow: 0 1.4rem 3rem rgb(2 25 68 / 35%);
+}
+.placeholderIcon {
+  font-size: 4rem;
+}
+.placeholderKicker {
+  color: #277699;
+  font-size: 0.75rem;
+  font-weight: 950;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.placeholderCard h1 {
+  margin: 0.4rem 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+}
+.placeholderCard > p:not(.placeholderKicker) {
+  color: #527084;
+}
+.placeholderCard a {
+  display: inline-block;
+  min-height: 3.2rem;
+  padding: 0.8rem 1.2rem;
+  margin-top: 1rem;
+  color: #102c5f;
+  font-weight: 950;
+  text-decoration: none;
+  background: #ffd43d;
+  border-radius: 1rem;
+}
+@media (max-width: 62rem) {
+  .mapFrame {
+    margin: 0;
+  }
+  .scrollHint {
+    display: block;
+  }
+}
+@media (max-width: 48rem) {
+  .gameHeader {
+    grid-template-columns: 1fr auto;
+  }
+  .gameLogo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    min-width: 12rem;
+    font-size: 1.55rem;
+    transform: translateX(-50%) rotate(-1deg);
+  }
+  .explorerCard {
+    min-width: 11rem;
+  }
+  .languageButton span:last-child {
+    display: none;
+  }
+  .languageButton {
+    min-width: 3.2rem;
+    padding: 0.55rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skipLink,
+  a.destination {
+    transition: none;
+  }
+}

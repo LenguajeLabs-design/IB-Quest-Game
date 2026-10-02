@@ -1,0 +1,431 @@
+.missionPage {
+  min-height: 100vh;
+  padding: 1.25rem 1.25rem 7rem;
+  background:
+    radial-gradient(circle at 20% 0%, rgb(66 202 255 / 34%), transparent 26rem),
+    linear-gradient(155deg, #0e315e 0%, #146b92 52%, #47cbb6 100%);
+}
+
+.missionTopbar {
+  display: grid;
+  grid-template-columns: 7rem 1fr 7rem;
+  align-items: center;
+  width: min(100%, 70rem);
+  min-height: 5.4rem;
+  padding: 0.8rem 1.2rem;
+  margin: 0 auto 0.8rem;
+  color: white;
+  background: rgb(5 31 72 / 74%);
+  border: 1px solid rgb(255 255 255 / 22%);
+  border-radius: 1.5rem;
+  box-shadow: 0 1rem 2rem rgb(0 24 59 / 22%);
+  backdrop-filter: blur(1rem);
+}
+
+.backLink {
+  justify-self: start;
+  min-width: 4.8rem;
+  padding: 0.7rem 0.9rem;
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+  background: rgb(255 255 255 / 12%);
+  border-radius: 999px;
+}
+
+.missionIdentity {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: 0.8rem;
+  text-align: left;
+}
+
+.missionIdentity p,
+.missionIdentity strong {
+  display: block;
+  margin: 0;
+}
+
+.missionIdentity p {
+  color: #c7edff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.missionIdentity strong {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.miniBadge {
+  display: grid;
+  width: 3.2rem;
+  aspect-ratio: 1;
+  place-items: center;
+  color: #102c5a;
+  font-size: 1.6rem;
+  font-weight: 900;
+  background: #ffd84f;
+  border: 0.2rem solid white;
+  border-radius: 50%;
+}
+
+.stepCount {
+  justify-self: end;
+  margin: 0;
+  color: #d8f5ff;
+  font-weight: 900;
+}
+
+.progressTrack {
+  width: min(calc(100% - 2rem), 66rem);
+  height: 0.7rem;
+  margin: 0 auto 1.4rem;
+  overflow: hidden;
+  background: rgb(255 255 255 / 24%);
+  border-radius: 999px;
+}
+
+.progressTrack span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #ffd22f, #ff9f2e);
+  border-radius: inherit;
+  transition: width 300ms ease;
+}
+
+.missionCard {
+  width: min(100%, 60rem);
+  min-height: 30rem;
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  margin: 0 auto;
+  color: #102c50;
+  text-align: center;
+  background: #fffdf4;
+  border: 0.32rem solid rgb(255 255 255 / 72%);
+  border-radius: 2.2rem;
+  box-shadow: 0 1.6rem 4rem rgb(0 31 70 / 28%);
+}
+
+.missionCard h1,
+.missionCard h2,
+.choicePrompt,
+.definition {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+}
+
+.storyScene {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.35fr) minmax(18rem, 0.65fr);
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.character {
+  display: grid;
+  width: min(100%, 13rem);
+  aspect-ratio: 1;
+  place-items: center;
+  font-size: clamp(5rem, 12vw, 8rem);
+  background: linear-gradient(145deg, #bcefff, #e9fbff);
+  border: 0.25rem solid #61c6e7;
+  border-radius: 50% 50% 44% 56%;
+}
+
+.speechBubble {
+  position: relative;
+  padding: 1.5rem;
+  text-align: left;
+  background: #eef8ff;
+  border: 0.15rem solid #9dd9ed;
+  border-radius: 1.5rem;
+}
+
+.speechBubble p {
+  margin: 0 0 0.8rem;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.55;
+}
+
+.speechBubble p:last-child {
+  margin-bottom: 0;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.8rem;
+  padding: 0.8rem 1.5rem;
+  margin-top: 1.5rem;
+  gap: 1rem;
+  color: #122d58;
+  font-size: 1.05rem;
+  font-weight: 950;
+  text-decoration: none;
+  background: linear-gradient(180deg, #ffe461, #ffbd24);
+  border: 0.15rem solid #f1a80b;
+  border-radius: 1.2rem;
+  box-shadow:
+    0 0.35rem 0 #d68f07,
+    0 0.8rem 1.5rem rgb(16 44 80 / 18%);
+}
+
+.primaryButton:hover {
+  transform: translateY(-0.08rem);
+}
+
+.storyScene .primaryButton {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.centeredStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stepKicker {
+  margin: 0 0 1rem;
+  color: #256a89;
+  font-size: 0.86rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.wordButton {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.8rem;
+  padding: 0.8rem 1.4rem;
+  gap: 1rem;
+  color: white;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 4.2rem);
+  font-weight: 950;
+  background: linear-gradient(145deg, #174f9d, #0f7a9d);
+  border: 0.25rem solid #8fe2ee;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.65rem 0 #0c386c;
+}
+
+.definition {
+  max-width: 34rem;
+  margin: 2rem auto 1rem;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.42;
+}
+
+.simpleToggle {
+  min-height: 2.8rem;
+  padding: 0.5rem 1rem;
+  color: #185c78;
+  font-weight: 850;
+  background: #dff7ff;
+  border: 0.1rem solid #79c8df;
+  border-radius: 999px;
+}
+
+.comparisonGrid,
+.choiceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.exampleCard,
+.nonExampleCard {
+  min-height: 15rem;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+}
+
+.exampleCard {
+  background: #e4f8dc;
+  border: 0.2rem solid #76bb5c;
+}
+
+.nonExampleCard {
+  background: #fff0e7;
+  border: 0.2rem solid #e99a72;
+}
+
+.exampleCard > span,
+.nonExampleCard > span,
+.bigIcon {
+  font-size: 3rem;
+}
+
+.exampleCard h2,
+.nonExampleCard h2 {
+  margin: 0.5rem 0;
+}
+
+.exampleCard p,
+.nonExampleCard p {
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+
+.choicePrompt {
+  max-width: 38rem;
+  margin: 0 auto 1.5rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.3;
+}
+
+.choiceButton {
+  display: flex;
+  align-items: center;
+  min-height: 7rem;
+  padding: 1rem;
+  gap: 1rem;
+  color: #153255;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 850;
+  background: white;
+  border: 0.18rem solid #a8c8d9;
+  border-radius: 1.3rem;
+  box-shadow: 0 0.4rem 0 #c7dbe4;
+}
+
+.choiceButton:hover,
+.choiceSelected {
+  background: #e3f7ff;
+  border-color: #2697bd;
+  transform: translateY(-0.08rem);
+}
+
+.choiceLetter {
+  display: grid;
+  flex: 0 0 auto;
+  width: 2.8rem;
+  aspect-ratio: 1;
+  place-items: center;
+  color: white;
+  font-size: 1.2rem;
+  background: #1e7297;
+  border-radius: 50%;
+}
+
+.feedback {
+  min-height: 4.4rem;
+  padding: 0.8rem 1rem;
+  margin-top: 1.25rem;
+  color: #31576a;
+  background: #f1f8fa;
+  border-radius: 1rem;
+}
+
+.feedback p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.reflectionStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reflectionLabel {
+  display: grid;
+  width: min(100%, 38rem);
+  gap: 0.6rem;
+  text-align: left;
+  font-weight: 900;
+}
+
+.reflectionLabel textarea {
+  width: 100%;
+  padding: 1rem;
+  color: #173a5c;
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+  background: white;
+  border: 0.18rem solid #86bdd1;
+  border-radius: 1rem;
+}
+
+.privacyNote {
+  margin: 0.7rem 0 0;
+  color: #587180;
+  font-size: 0.82rem;
+}
+
+.rewardStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rewardBadge {
+  display: grid;
+  width: 10rem;
+  aspect-ratio: 1;
+  margin-bottom: 1.4rem;
+  place-items: center;
+  color: #fff2a5;
+  font-size: 5rem;
+  background: radial-gradient(
+    circle,
+    #2a9fc0 0 38%,
+    #174b91 39% 58%,
+    #ffd138 59%
+  );
+  border: 0.5rem solid white;
+  border-radius: 50%;
+  box-shadow: 0 1rem 2rem rgb(20 70 117 / 28%);
+}
+
+.rewardStep h2 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+}
+
+.rewardStep > p:not(.stepKicker) {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 45rem) {
+  .missionTopbar {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .backLink span,
+  .missionIdentity p {
+    display: none;
+  }
+
+  .storyScene,
+  .comparisonGrid,
+  .choiceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .character {
+    justify-self: center;
+    width: 9rem;
+  }
+
+  .missionCard {
+    min-height: 0;
+    border-radius: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressTrack span,
+  .primaryButton,
+  .choiceButton {
+    transition: none;
+  }
+}
